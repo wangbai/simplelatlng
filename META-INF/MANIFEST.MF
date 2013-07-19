@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Build-Jdk: 1.6.0_33
+Built-By: Tyler
+Built-Date: 2013-07-01 22:08:05
+Implementation-Title: SimpleLatLng
+Implementation-Version: 1.3.0
+
