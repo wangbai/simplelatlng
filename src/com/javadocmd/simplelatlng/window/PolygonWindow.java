@@ -21,7 +21,6 @@ public class PolygonWindow extends LatLngWindow<PolygonWindow> {
 		return null;
 	}
 
-	@Override
 	public int containsBound(LatLng point) {
 		// TODO Auto-generated method stub
 		int total = this.points.length;
