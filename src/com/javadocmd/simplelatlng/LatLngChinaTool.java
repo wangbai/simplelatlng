@@ -4,7 +4,7 @@ import com.javadocmd.simplelatlng.LatlngChinaTool.MarsToBaidu;
 import com.javadocmd.simplelatlng.LatlngChinaTool.WorldToMars;
 
 /*
- * UI for all the china offset converter
+ * API for all the china offset converters
  * It is thread-safe, so have fun to use in multi-thread application.
  */
 public class LatLngChinaTool {
@@ -38,6 +38,5 @@ public class LatLngChinaTool {
 		LatLng marsPoint = this.Baidu2Mars(baiduPoint);
 		return this.Mars2World(marsPoint);
 	}
-	
 	
 }
