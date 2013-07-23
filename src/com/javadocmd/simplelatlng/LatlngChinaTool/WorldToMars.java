@@ -25,13 +25,16 @@ public final class WorldToMars {
         return new LatLng(point.getY(), point.getX()); 
 	}
 	
+	/*
+	 * The accuracy is about between 0 to 3 meter
+	 */
 	public LatLng transcodeFromGcj02toWgs84 (LatLng gcPoint) {
 		LatLng tmpPoint = transcodeFromWgs84toGcj02(gcPoint);
 		double tmpLat = tmpPoint.getLatitude();
 		double tmpLon = tmpPoint.getLongitude();
 		
-		double gcLat = tmpPoint.getLatitude();
-		double gcLon = tmpPoint.getLongitude();
+		double gcLat = gcPoint.getLatitude();
+		double gcLon = gcPoint.getLongitude();
 		
 		double deltaLat = tmpLat - gcLat;
 		double deltaLon = tmpLon - gcLon;

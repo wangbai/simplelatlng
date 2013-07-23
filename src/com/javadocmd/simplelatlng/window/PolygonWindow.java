@@ -11,8 +11,33 @@ public class PolygonWindow extends LatLngWindow<PolygonWindow> {
 	private LatLng[] points = null; 
 	
 	public PolygonWindow(LatLng[] points) {
-		assert (points.length >= 3);
+		setPoints(points);
+	}
+	
+	public void setPoints(LatLng[] points) {
+		if (!isPolygonValid(points)) {
+			throw new IllegalArgumentException("It is not a valid polygon:"+points);
+		}
+		
 		this.points = points;
+	}
+	
+	public LatLng[] getPoints() {
+		return points;
+	}
+	
+	private boolean isPolygonValid(LatLng[] points) {
+		if (points.length < 3) {
+			return false;
+		}
+		
+		for(LatLng point : points) {
+			if (point == null) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 
 	@Override
@@ -134,7 +159,6 @@ public class PolygonWindow extends LatLngWindow<PolygonWindow> {
 					&& (point.getLatitude() == pointOne.getLatitude())) {
 				return true;
 			}
-
 			// right vertex
 			LatLng pointTwo = this.points[i % total];
 			// ray is outside of our interests

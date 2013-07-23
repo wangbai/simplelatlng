@@ -234,6 +234,6 @@ public class LatLngTool {
 	}
 
 	private LatLngTool() {
-
+		
 	}
 }

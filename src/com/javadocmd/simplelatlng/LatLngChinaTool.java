@@ -38,4 +38,6 @@ public class LatLngChinaTool {
 		LatLng marsPoint = this.Baidu2Mars(baiduPoint);
 		return this.Mars2World(marsPoint);
 	}
+	
+	
 }
