@@ -2,10 +2,9 @@ package com.javadocmd.simplelatlng.window;
 
 
 import com.javadocmd.simplelatlng.LatLng;
-import com.javadocmd.simplelatlng.util.LatLngConfig;
 
 /**
- *  @author shiwenchen
+ *  @author wangbai
  */
 public class PolygonWindow extends LatLngWindow<PolygonWindow> {
 	
@@ -91,6 +90,14 @@ public class PolygonWindow extends LatLngWindow<PolygonWindow> {
 	@Override
 	public boolean overlaps(PolygonWindow window) {
 		// TODO Auto-generated method stub
+		LatLng[] testPoints = window.getPoints();
+		
+		for(LatLng p : testPoints) {
+			if (this.contains(p)) {
+				return true;
+			}
+		}
+		
 		return false;
 	}
 }
