@@ -26,6 +26,9 @@ public class PolygonWindow extends LatLngWindow<PolygonWindow> {
 		return points;
 	}
 	
+	/*
+	 * whether the polygon is a simple polygon
+	 */
 	private boolean isPolygonValid(LatLng[] points) {
 		if (points.length < 3) {
 			return false;
