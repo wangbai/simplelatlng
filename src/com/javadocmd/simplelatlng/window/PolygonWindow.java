@@ -2,6 +2,7 @@ package com.javadocmd.simplelatlng.window;
 
 
 import com.javadocmd.simplelatlng.LatLng;
+import com.javadocmd.simplelatlng.LatLngTool;
 
 /**
  *  @author wangbai
@@ -102,5 +103,34 @@ public class PolygonWindow extends LatLngWindow<PolygonWindow> {
 		}
 		
 		return false;
+	}
+	
+	public boolean isSimple() {
+		return isSimple(points);
+	}
+	
+	/*
+	 * Judge the polygon is simple by brute-force algorithm
+	 */
+	public static boolean isSimple(LatLng[] points) {
+		int total = points.length;
+		for (int i = 0; i < total; ++i) {
+			LatLng Pa1 = points[i];
+			LatLng Pa2 = points[(i+1)%total];
+			
+			for (int j = 1; j < total - 2; ++j) {
+				int k = i + j + 1;
+				LatLng Pb1 = points[k % total];
+				LatLng Pb2 = points[(k+1) % total];
+				
+				//if there are two bounds intersected, 
+				//it is not a simple polygon
+				if (LatLngTool.isIntersected(Pa1, Pa2, Pb1, Pb2)) {
+					return false;
+				}
+			}
+		}
+		
+		return true; 
 	}
 }

@@ -233,6 +233,64 @@ public class LatLngTool {
 		return bearingResult;
 	}
 
+	/*
+	 * calulate which direction a point is against a line
+	 */
+	private static double direction(LatLng p1, LatLng p2, LatLng p3) {  
+		return (p2.getLongitude()-p1.getLongitude()) 
+				* (p3.getLatitude()-p1.getLatitude())
+				- (p3.getLongitude()-p1.getLongitude()) 
+				* (p2.getLatitude()-p1.getLatitude());  
+	}
+	
+	/*
+	 * Judge is a point on the line
+	 */
+	private static boolean isOnline(LatLng p1, LatLng p2, LatLng p3)  {  
+		double left,right;  
+		if(p1.getLongitude() <= p2.getLongitude()) {
+			left=p1.getLongitude();
+			right=p2.getLongitude();
+		} else {
+			left=p2.getLongitude();  
+			right=p1.getLongitude();
+		}  
+		
+		if(left <= p3.getLongitude() 
+				&& p3.getLongitude() <= right)  {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public static boolean isIntersected(LatLng p1, LatLng p2, LatLng p3, LatLng p4) {
+		double d1,d2,d3,d4;    
+		
+		//is line A across line B
+		d1=direction(p3,p4,p1);
+		d2=direction(p3,p4,p2);
+		//is line B across line A
+		d3=direction(p1,p2,p3);
+		d4=direction(p1,p2,p4);  
+		
+		//if both lines are across each other, then line A, B intersect 
+		//else if either point is on the A or B, then line A, B intersect
+		if(d1*d2 < 0 && d3*d4 < 0) {  
+			return true;
+		} else if( 0 == d1 && isOnline(p3,p4,p1) ) {  
+			return true;  
+		} else if( 0 == d2 && isOnline(p3,p4,p2) )  {
+			return true;
+		} else if( 0 == d3 && isOnline(p1,p2,p3) ) {  
+			return true;
+		} else if( 0 == d4 && isOnline(p1,p2,p4) ) {
+			return true;
+		}
+		
+		return false;
+	}
+	
 	private LatLngTool() {
 		
 	}
