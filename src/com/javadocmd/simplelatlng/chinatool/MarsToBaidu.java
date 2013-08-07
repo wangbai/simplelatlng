@@ -1,4 +1,4 @@
-package com.javadocmd.simplelatlng.LatlngChinaTool;
+package com.javadocmd.simplelatlng.chinatool;
 
 import com.javadocmd.simplelatlng.LatLng;
 

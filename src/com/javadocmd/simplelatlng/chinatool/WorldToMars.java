@@ -1,4 +1,4 @@
-package com.javadocmd.simplelatlng.LatlngChinaTool;
+package com.javadocmd.simplelatlng.chinatool;
 
 import com.javadocmd.simplelatlng.LatLng;
 
@@ -20,7 +20,7 @@ public final class WorldToMars {
 	public LatLng transcodeFromWgs84toGcj02 (LatLng wgPoint) {
 		Point point = converter.wg2mars(wgPoint.getLatitude(), wgPoint.getLongitude());
 		if (point == null) {
-			return null;
+			throw new IllegalStateException("Fail to transcode "+wgPoint);
 		}
         return new LatLng(point.getY(), point.getX()); 
 	}

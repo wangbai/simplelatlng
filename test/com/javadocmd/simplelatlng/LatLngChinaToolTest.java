@@ -13,7 +13,6 @@ public class LatLngChinaToolTest {
 //		LatLng world = new LatLng(23.517846, 113.540124);
 //		LatLng mars = new LatLng(23.515152452257, 113.54532931858);
 //		
-		LatLngChinaTool tool = new LatLngChinaTool();
 //		LatLng mars_trans = tool.World2Mars(world);
 //		System.out.println(mars_trans.equals(mars));
 //		System.out.println(mars_trans);
@@ -42,10 +41,10 @@ public class LatLngChinaToolTest {
 		LatLng mars = new LatLng(23.517846, 113.540124);
 		LatLng baidu = new LatLng(23.524013934862, 113.54658691644);
 		
-		LatLng baidu_trans = tool.Mars2Baidu(mars);
+		LatLng baidu_trans = LatLngChinaTool.Mars2Baidu(mars);
 		System.out.println(baidu_trans.equals(baidu));
 		
-		LatLng mars_trans = tool.Baidu2Mars(baidu);
+		LatLng mars_trans = LatLngChinaTool.Baidu2Mars(baidu);
 		System.out.println(mars_trans);
 		System.out.println(mars);
 	}
