@@ -233,8 +233,8 @@ public class LatLngTool {
 		return bearingResult;
 	}
 
-	/*
-	 * calulate which direction a point is against a line
+	/**
+	 * calculate which direction a point is against a line
 	 */
 	private static double direction(LatLng p1, LatLng p2, LatLng p3) {  
 		return (p2.getLongitude()-p1.getLongitude()) 
@@ -243,7 +243,7 @@ public class LatLngTool {
 				* (p2.getLatitude()-p1.getLatitude());  
 	}
 	
-	/*
+	/**
 	 * Judge is a point on the line
 	 */
 	private static boolean isOnline(LatLng p1, LatLng p2, LatLng p3)  {  
@@ -264,6 +264,20 @@ public class LatLngTool {
 		}
 	}
 	
+	/**
+	 * whether is a line intersected with the other
+	 * 
+	 * @param p1 
+	 * 		start point of the first line
+	 * @param p2 
+	 * 		end point of the first line
+	 * @param p3 
+	 * 		start point of the second line
+	 * @param p4 
+	 * 		end point of the second line
+	 * @return
+	 * 		true, a line is intersected with the other.
+	 */
 	public static boolean isIntersected(LatLng p1, LatLng p2, LatLng p3, LatLng p4) {
 		double d1,d2,d3,d4;    
 		
