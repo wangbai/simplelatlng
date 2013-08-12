@@ -28,30 +28,31 @@ import java.util.Comparator;
  */
 public class SortWrapper<E> {
 
-	private E value;
-	private double distance;
+    private E value;
+    private double distance;
 
-	public SortWrapper(E value, double distance) {
-		this.value = value;
-		this.distance = distance;
-	}
+    public SortWrapper(E value, double distance) {
+        this.value = value;
+        this.distance = distance;
+    }
 
-	public E getValue() {
-		return value;
-	}
+    public E getValue() {
+        return value;
+    }
 
-	public double getDistance() {
-		return distance;
-	}
+    public double getDistance() {
+        return distance;
+    }
 
-	/**
-	 * Compares SortWrappers by their associated distance value.
-	 */
-	public static class DistanceComparator<E> implements Comparator<SortWrapper<E>> {
+    /**
+     * Compares SortWrappers by their associated distance value.
+     */
+    public static class DistanceComparator<E> implements
+            Comparator<SortWrapper<E>> {
 
-		@Override
-		public int compare(SortWrapper<E> o1, SortWrapper<E> o2) {
-			return Double.compare(o1.getDistance(), o2.getDistance());
-		}
-	}
+        @Override
+        public int compare(SortWrapper<E> o1, SortWrapper<E> o2) {
+            return Double.compare(o1.getDistance(), o2.getDistance());
+        }
+    }
 }
